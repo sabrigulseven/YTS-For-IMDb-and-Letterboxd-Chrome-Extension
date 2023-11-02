@@ -1,0 +1,36 @@
+{
+    "name": "YTS For IMDb and Letterboxd",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://letterboxd.com/film/*"
+            ],
+            "js": [
+                "letterboxd.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://www.imdb.com/title/*"
+            ],
+            "js": [
+                "imdb.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "host_permissions": [
+        "https://letterboxd.com/*",
+        "https://www.imdb.com/*"
+    ],
+    "permissions": [
+        "tabs"
+    ]
+}
